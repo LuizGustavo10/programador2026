@@ -1,0 +1,60 @@
+body{
+    /*cor de fundo*/
+    background-color:cornflowerblue;
+    /*foto de fundo*/
+    background-image: url(https://www.pixelstalk.net/wp-content/uploads/images6/Desktop-Wallpaper-Aesthetic-Wallpaper-Romantic.jpg);
+    background-size: cover;
+    /*alinhamento por flexbox*/
+    display:flex;
+    /*alinha sentido acima, abaixo*/
+    align-items:center;
+    /*alinha sentido esquerda, direita*/
+    justify-content: center;
+
+}
+
+.painel{
+    background-color: rgba(255, 255, 255, 0.926);
+    /*espaçamento interno*/
+    padding: 30px;
+    /*arredondar cantos*/
+    border-radius: 12px;
+    /*largura*/
+    width: 340px;
+    /*sombra*/
+    box-shadow: 10px 10px 10px;
+    
+}
+input, textarea{
+    /*largura dos campos*/
+    width: 100%;
+    /*espaçamento interno*/
+    padding: 10px;
+    /*margem*/
+    margin:7px;
+    /*arredondar*/
+    border-radius: 8px;
+    border: 1px solid #ccc;
+}
+
+button{
+    width:100%;
+    padding: 12px;
+    border: none;
+    background-color: cornflowerblue;
+    border-radius: 8px;
+    cursor: pointer;
+    color: white;
+    margin: 7px;
+    transition: 0.5s;
+}
+
+button:hover{
+    background-color:darkblue;
+    scale: 1.1;
+}
+
+h2{
+    text-align:center;
+    color:cornflowerblue;
+}

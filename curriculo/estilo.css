@@ -1,0 +1,173 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
+section{
+    font-family: "Raleway", sans-serif;
+    max-width: 500px;
+    box-shadow: 2px 2px 7px gray;
+    border-radius: 15px;
+    margin: auto;
+    padding: 50px;
+
+    /*alinhando no centro conteúdo do card*/
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: whitesmoke;
+    margin-bottom: 15px;
+    /* animation: animar alternate infinite 4s; */
+    transition: height 2s ease-in-out;
+}
+@keyframes animar{
+    0% { 
+        background-color: red;
+        transform: translateX(150px);
+     }
+    25% {  
+        background-color: yellow;
+        transform: translateY(150px);
+     }
+    50% {  
+        background-color: green;
+        transform: translateZ(150px);
+     }
+    75% {  
+        background-color: orange;
+        transform: rotate(90deg);
+     }
+    100% { 
+        background-color: blue;
+        transform: rotate(-180deg);
+     }
+}
+
+body{
+    background-color:cornflowerblue;
+    background-image: url(https://img.freepik.com/fotos-premium/tecnologia-de-moleculas-com-formas-poligonais_7247-2384.jpg?semt=ais_hybrid&w=740&q=80);
+    background-size: cover;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+table{
+    border-spacing: 0px;
+    font-size: 12px;
+    background-color: white;
+    border-color: white;
+    width: 100%;
+    text-align: left;
+}
+
+ul{ list-style: none; }
+#redes ul li a{
+    text-decoration: none;
+    color: black;
+}
+#whatsapp{
+    color: green;
+}
+#facebook{
+    color: blue;
+}
+#instagram{
+    color: orange;
+}
+#linkedin{
+    color: cadetblue;
+}
+#whatsapp, #facebook, #instagram, #linkedin{
+    font-size: 25px;
+}
+
+h3{
+    /* font-family: "Pacifico", cursive; */
+}
+.menu{
+    background-color: black;
+    background: linear-gradient(to right, blue, cadetblue);
+    text-align: center;
+}
+.menu ul li{
+    /*coloca os itens da lista em linha*/
+    display: inline-block;
+    width: 100px;
+    text-align: center;
+    margin: 10px;
+}
+.menu ul li a{
+    color: white;
+    text-decoration: none;
+}
+.menu ul li a:hover{
+    font-weight: bold;
+    color: cyan;
+}
+
+body{
+    margin: 0px;
+    padding: 0px;
+}
+
+.menuicone{
+    /*faz o icone de menu sumir*/
+    display:none;
+}
+
+/*configuração especial para o celular*/
+@media(max-width: 1050px){
+    .menuicone{
+        display: block;
+        color: white;
+        text-align: left;
+        font-size: 30px;
+        padding: 10px;
+    }
+    .menu{
+        margin-bottom: 20px;
+    }
+    .menu ul{
+        display: none;
+    }
+    section{
+        max-width: 80%; 
+        font-size:30px;
+    }
+    td{
+        font-size:20px;
+    }
+    ul.mostrarmenu{
+        display: inline-block;
+    }
+
+    .menu ul li{
+        width: 100%;
+        text-align: center;
+    }
+ 
+}
+
+
+.painel{
+    display: flex;
+    /*direção dos itens*/
+    flex-direction: row;
+    /*quebra de linha automática*/
+     flex-wrap: wrap;
+     width: 100%;
+     /*alinhamento do conteúdo*/
+    justify-content: space-around;
+    text-align: center;
+}
+img{
+    border-radius: 20px;
+    box-shadow: 2px 2px 10px black;
+}
+a{
+    font-family: serif;
+}
+
+footer{
+    background-color: black;
+    height: 100px;
+    color: white;
+    text-align: center;
+    padding: 40px
+}
