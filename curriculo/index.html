@@ -1,729 +1,105 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Luiz Gustavo — Dev Full Stack</title>
-    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-    <style>
-        :root {
-            --bg: #f0f4f8;
-            --surface: #ffffff;
-            --surface2: #e8edf3;
-            --border: rgba(0,0,0,0.09);
-            --accent: #0052cc;
-            --accent2: #7b61ff;
-            --text: #1e2030;
-            --muted: #7a7a9a;
-            --white: #1e2030;
-        }
+    <title>Document</title>
+    <link rel="stylesheet" href="estilo.css">
+    
 
-        * { margin: 0; padding: 0; box-sizing: border-box; }
 
-        html { scroll-behavior: smooth; }
 
-        body {
-            background: var(--bg);
-            color: var(--text);
-            font-family: 'DM Sans', sans-serif;
-            font-weight: 300;
-            line-height: 1.6;
-            overflow-x: hidden;
-        }
-
-        /* ── BACKGROUND EFFECT ── */
-        body::before {
-            content: '';
-            position: fixed;
-            top: -30%;
-            right: -20%;
-            width: 700px;
-            height: 700px;
-            background: radial-gradient(circle, rgba(123,97,255,0.07) 0%, transparent 65%);
-            pointer-events: none;
-            z-index: 0;
-        }
-        body::after {
-            content: '';
-            position: fixed;
-            bottom: -20%;
-            left: -10%;
-            width: 600px;
-            height: 600px;
-            background: radial-gradient(circle, rgba(0,82,204,0.06) 0%, transparent 65%);
-            pointer-events: none;
-            z-index: 0;
-        }
-
-        /* ── NAV ── */
-        nav {
-            position: fixed;
-            top: 0; left: 0; right: 0;
-            z-index: 100;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 1rem 3rem;
-            background: rgba(240,244,248,0.92);
-            backdrop-filter: blur(20px);
-            border-bottom: 1px solid var(--border);
-        }
-
-        .nav-logo {
-            font-family: 'Syne', sans-serif;
-            font-weight: 800;
-            font-size: 1.1rem;
-            color: var(--accent);
-            letter-spacing: -0.02em;
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 2rem;
-            list-style: none;
-        }
-
-        .nav-links a {
-            color: var(--muted);
-            text-decoration: none;
-            font-size: 0.85rem;
-            font-weight: 400;
-            letter-spacing: 0.05em;
-            text-transform: uppercase;
-            transition: color 0.2s;
-        }
-
-        .nav-links a:hover { color: var(--accent); }
-
-        .menu-toggle {
-            display: none;
-            background: none;
-            border: none;
-            color: var(--text);
-            font-size: 1.4rem;
-            cursor: pointer;
-        }
-
-        /* ── HERO ── */
-        .hero {
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            padding: 8rem 3rem 4rem;
-            max-width: 1100px;
-            margin: 0 auto;
-            position: relative;
-            z-index: 1;
-            gap: 4rem;
-        }
-
-        .hero-text { flex: 1; }
-
-        .hero-badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            background: rgba(0,82,204,0.08);
-            border: 1px solid rgba(0,82,204,0.2);
-            color: var(--accent);
-            font-size: 0.75rem;
-            font-weight: 500;
-            letter-spacing: 0.1em;
-            text-transform: uppercase;
-            padding: 0.4rem 1rem;
-            border-radius: 100px;
-            margin-bottom: 1.5rem;
-            animation: fadeUp 0.6s ease both;
-        }
-
-        .hero-badge::before {
-            content: '';
-            width: 6px; height: 6px;
-            border-radius: 50%;
-            background: var(--accent);
-            animation: pulse 2s infinite;
-        }
-
-        @keyframes pulse {
-            0%, 100% { opacity: 1; transform: scale(1); }
-            50% { opacity: 0.4; transform: scale(0.8); }
-        }
-
-        .hero h1 {
-            font-family: 'Syne', sans-serif;
-            font-weight: 800;
-            font-size: clamp(2.8rem, 6vw, 5rem);
-            line-height: 1.05;
-            letter-spacing: -0.03em;
-            color: var(--white);
-            margin-bottom: 1rem;
-            animation: fadeUp 0.6s 0.1s ease both;
-        }
-
-        .hero h1 span { color: var(--accent); }
-
-        .hero-sub {
-            font-size: 1.1rem;
-            color: var(--muted);
-            margin-bottom: 2.5rem;
-            max-width: 480px;
-            animation: fadeUp 0.6s 0.2s ease both;
-        }
-
-        .hero-contacts {
-            display: flex;
-            gap: 1rem;
-            flex-wrap: wrap;
-            animation: fadeUp 0.6s 0.3s ease both;
-        }
-
-        .btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            padding: 0.75rem 1.5rem;
-            border-radius: 8px;
-            font-size: 0.9rem;
-            font-weight: 500;
-            text-decoration: none;
-            transition: all 0.2s;
-            font-family: 'DM Sans', sans-serif;
-        }
-
-        .btn-primary {
-            background: var(--accent);
-            color: #fff;
-        }
-
-        .btn-primary:hover {
-            background: #0044bb;
-            transform: translateY(-2px);
-            box-shadow: 0 8px 30px rgba(0,82,204,0.25);
-        }
-
-        .btn-outline {
-            background: transparent;
-            color: var(--text);
-            border: 1px solid var(--border);
-        }
-
-        .btn-outline:hover {
-            border-color: var(--accent);
-            color: var(--accent);
-            transform: translateY(-2px);
-        }
-
-        .hero-image {
-            flex-shrink: 0;
-            position: relative;
-            animation: fadeUp 0.6s 0.15s ease both;
-        }
-
-        .hero-image img {
-            width: 220px;
-            height: 220px;
-            border-radius: 24px;
-            object-fit: cover;
-            display: block;
-            border: 2px solid var(--border);
-        }
-
-        .hero-image::before {
-            content: '';
-            position: absolute;
-            inset: -3px;
-            border-radius: 26px;
-            background: linear-gradient(135deg, var(--accent), var(--accent2));
-            z-index: -1;
-            opacity: 0.6;
-        }
-
-        .avatar-placeholder {
-            width: 220px;
-            height: 220px;
-            border-radius: 24px;
-            background: linear-gradient(135deg, #e8edf3, #f0f4f8);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            gap: 0.5rem;
-            color: var(--muted);
-            font-size: 0.8rem;
-            border: 1px solid var(--border);
-        }
-
-        .avatar-placeholder i { font-size: 3rem; color: var(--accent); opacity: 0.4; }
-
-        /* ── MAIN CONTENT ── */
-        main {
-            max-width: 1100px;
-            margin: 0 auto;
-            padding: 0 3rem 6rem;
-            position: relative;
-            z-index: 1;
-        }
-
-        /* ── SECTION ── */
-        section {
-            margin-bottom: 5rem;
-            opacity: 0;
-            transform: translateY(30px);
-            transition: opacity 0.6s ease, transform 0.6s ease;
-        }
-
-        section.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        .section-header {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-            margin-bottom: 2rem;
-        }
-
-        .section-icon {
-            width: 40px; height: 40px;
-            border-radius: 10px;
-            background: rgba(0,82,204,0.08);
-            border: 1px solid rgba(0,82,204,0.18);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--accent);
-            font-size: 0.9rem;
-        }
-
-        .section-header h2 {
-            font-family: 'Syne', sans-serif;
-            font-weight: 700;
-            font-size: 1.5rem;
-            color: var(--white);
-            letter-spacing: -0.02em;
-        }
-
-        /* ── CARDS ── */
-        .cards-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 1rem;
-        }
-
-        .card {
-            background: var(--surface);
-            border: 1px solid var(--border);
-            border-radius: 16px;
-            padding: 1.5rem;
-            transition: border-color 0.2s, transform 0.2s;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .card::before {
-            content: '';
-            position: absolute;
-            top: 0; left: 0; right: 0;
-            height: 2px;
-            background: linear-gradient(90deg, var(--accent), var(--accent2));
-            opacity: 0;
-            transition: opacity 0.2s;
-        }
-
-        .card:hover { border-color: rgba(0,82,204,0.3); transform: translateY(-3px); box-shadow: 0 8px 30px rgba(0,82,204,0.08); }
-        .card:hover::before { opacity: 1; }
-
-        .card-title {
-            font-family: 'Syne', sans-serif;
-            font-weight: 600;
-            font-size: 0.95rem;
-            color: var(--white);
-            margin-bottom: 0.25rem;
-        }
-
-        .card-sub {
-            font-size: 0.82rem;
-            color: var(--accent);
-            font-weight: 500;
-            margin-bottom: 0.75rem;
-        }
-
-        .card-meta {
-            display: flex;
-            gap: 1rem;
-            flex-wrap: wrap;
-        }
-
-        .tag {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.3rem;
-            font-size: 0.75rem;
-            color: var(--muted);
-            background: var(--surface2);
-            padding: 0.25rem 0.6rem;
-            border-radius: 6px;
-            border: 1px solid var(--border);
-        }
-
-        .tag i { font-size: 0.65rem; }
-
-        /* ── EXP TIMELINE ── */
-        .timeline {
-            position: relative;
-            padding-left: 2rem;
-        }
-
-        .timeline::before {
-            content: '';
-            position: absolute;
-            left: 0; top: 8px; bottom: 8px;
-            width: 1px;
-            background: linear-gradient(180deg, var(--accent), var(--accent2), transparent);
-            opacity: 0.4;
-        }
-
-        .timeline-item {
-            position: relative;
-            padding-bottom: 2rem;
-        }
-
-        .timeline-item::before {
-            content: '';
-            position: absolute;
-            left: -2.4rem;
-            top: 6px;
-            width: 10px; height: 10px;
-            border-radius: 50%;
-            background: var(--accent);
-            border: 2px solid var(--bg);
-            box-shadow: 0 0 12px rgba(0,82,204,0.35);
-        }
-
-        .timeline-item:last-child { padding-bottom: 0; }
-
-        .tl-period {
-            font-size: 0.75rem;
-            color: var(--accent);
-            font-weight: 500;
-            letter-spacing: 0.05em;
-            margin-bottom: 0.25rem;
-        }
-
-        .tl-role {
-            font-family: 'Syne', sans-serif;
-            font-weight: 700;
-            font-size: 1rem;
-            color: var(--white);
-        }
-
-        .tl-company {
-            font-size: 0.85rem;
-            color: var(--muted);
-            margin-top: 0.2rem;
-        }
-
-        /* ── SOCIAL ── */
-        .social-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-            gap: 1rem;
-        }
-
-        .social-card {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-            background: var(--surface);
-            border: 1px solid var(--border);
-            border-radius: 14px;
-            padding: 1.2rem 1.4rem;
-            text-decoration: none;
-            color: var(--text);
-            transition: all 0.2s;
-        }
-
-        .social-card:hover { transform: translateY(-3px); }
-
-        .social-card:hover .si-whatsapp { border-color: rgba(37,211,102,0.4); color: #25D366; background: rgba(37,211,102,0.1); }
-        .social-card:hover .si-facebook { border-color: rgba(24,119,242,0.4); color: #1877F2; background: rgba(24,119,242,0.1); }
-        .social-card:hover .si-instagram { border-color: rgba(225,48,108,0.4); color: #E1306C; background: rgba(225,48,108,0.1); }
-        .social-card:hover .si-linkedin { border-color: rgba(10,102,194,0.4); color: #0A66C2; background: rgba(10,102,194,0.1); }
-
-        .social-icon {
-            width: 40px; height: 40px;
-            border-radius: 10px;
-            border: 1px solid var(--border);
-            display: flex; align-items: center; justify-content: center;
-            font-size: 1.1rem;
-            color: var(--muted);
-            transition: all 0.2s;
-            flex-shrink: 0;
-        }
-
-        .social-label { font-size: 0.9rem; font-weight: 500; }
-
-        /* ── MAP ── */
-        .address-wrapper {
-            display: grid;
-            grid-template-columns: 1fr 1.4fr;
-            gap: 1.5rem;
-            align-items: start;
-        }
-
-        .address-info {
-            background: var(--surface);
-            border: 1px solid var(--border);
-            border-radius: 16px;
-            padding: 1.8rem;
-        }
-
-        .address-info li {
-            list-style: none;
-            color: var(--muted);
-            font-size: 0.9rem;
-            padding: 0.5rem 0;
-            border-bottom: 1px solid var(--border);
-            display: flex;
-            align-items: center;
-            gap: 0.6rem;
-        }
-
-        .address-info li:last-child { border-bottom: none; }
-        .address-info li i { color: var(--accent); font-size: 0.8rem; width: 16px; }
-
-        .map-frame {
-            border-radius: 16px;
-            overflow: hidden;
-            border: 1px solid var(--border);
-        }
-
-        .map-frame iframe {
-            display: block;
-            width: 100%;
-            height: 280px;
-            filter: none;
-        }
-
-        /* ── FOOTER ── */
-        footer {
-            border-top: 1px solid var(--border);
-            text-align: center;
-            padding: 2rem;
-            color: var(--muted);
-            font-size: 0.8rem;
-            position: relative;
-            z-index: 1;
-        }
-
-        footer span { color: var(--accent); }
-
-        /* ── ANIMATIONS ── */
-        @keyframes fadeUp {
-            from { opacity: 0; transform: translateY(20px); }
-            to   { opacity: 1; transform: translateY(0); }
-        }
-
-        /* ── RESPONSIVE ── */
-        @media (max-width: 768px) {
-            nav { padding: 1rem 1.5rem; }
-            .nav-links { display: none; flex-direction: column; position: absolute; top: 100%; left: 0; right: 0; background: var(--bg); padding: 1rem 1.5rem 1.5rem; border-bottom: 1px solid var(--border); gap: 1rem; }
-            .nav-links.open { display: flex; }
-            .menu-toggle { display: block; }
-            .hero { flex-direction: column-reverse; align-items: flex-start; gap: 2rem; padding: 7rem 1.5rem 3rem; }
-            main { padding: 0 1.5rem 4rem; }
-            .address-wrapper { grid-template-columns: 1fr; }
-            .hero h1 { font-size: 2.5rem; }
-        }
-    </style>
 </head>
 <body>
 
-<nav id="inicio">
-    <div class="nav-logo">LG.dev</div>
-    <button class="menu-toggle" id="menuToggle"><i class="fa-solid fa-bars"></i></button>
-    <ul class="nav-links" id="navLinks">
-        <li><a href="#inicio">Início</a></li>
-        <li><a href="#formacao">Formação</a></li>
-        <li><a href="#experiencia">Experiência</a></li>
-        <li><a href="#contato">Contato</a></li>
-        <li><a href="#endereco">Endereço</a></li>
+    <h1> Olá mundo </h1>
+    <h6> Senac - Serviço Nacional de Aprendizagem Comercial </h6>
+    <p> Programador de Sistemas </p>
+    <img src="https://ma.senac.br/wp-content/uploads/2024/01/CEP-SAO-LUIS-REDUZIDA-768x512-1.jpg">
+    <p>
+        O senac foi criado no Brasil em 10 de janeiro de 1946,
+        A instituição surgiu no Pós-Guerra, com objetivo de
+        organizar e ministrar o ensino profissional para o
+        setor de comércio, Serviços e Turismo.
+    </p>
+
+    <h2> Lista do churrasco da turma </h2>
+    <ul>
+        <li> 10 kg de Bisteca </li>
+        <li> Linguiça </li>
+        <li> Cerveja </li>
+        <li> Carvão </li>
+        <li> Pão de Alho </li>
+        <li> Caixa de Som </li>
+        <li> Farofa </li>
+        <li> Coca-Cola </li>
+        <li> Maionese </li>
+        <li> Vinagrete </li>
+        <li> Arroz Carreteiro </li>
+        <li> Creme de milho </li>
+        <li> Asinha de Frango</li>
+        <li> Mandioca </li>
     </ul>
-</nav>
 
-<!-- HERO -->
-<div class="hero">
-    <div class="hero-text">
-        <div class="hero-badge"><i class="fa-solid fa-code"></i> Disponível para projetos</div>
-        <h1>Luiz Gustavo<br><span>Francisco Dev</span></h1>
-        <p class="hero-sub">Programador Full Stack · Instrutor de Tecnologia · Desenvolvedor Java &amp; Web</p>
-        <div class="hero-contacts">
-            <a href="https://wa.me/+5544998521042" class="btn btn-primary">
-                <i class="fa-brands fa-whatsapp"></i> WhatsApp
-            </a>
-            <a href="mailto:luiz.francisco@gmail.com" class="btn btn-outline">
-                <i class="fa-solid fa-envelope"></i> luiz.francisco@gmail.com
-            </a>
-        </div>
-    </div>
-    <div class="hero-image">
-        <div class="avatar-placeholder">
-            <i class="fa-solid fa-user"></i>
-            <span>perfil.png</span>
-        </div>
-    </div>
-</div>
+    <table border="2">
+        <tr> 
+            <td> Nome </td>
+            <td> Valor </td>
+        </tr>
+        <tr>
+            <td> Daniel </td>
+            <td> R$50,00 </td>
+        </tr>
+        <tr>
+            <td> Marcos </td>
+            <td> R$55,00 </td>
+        </tr>
+    </table>
 
-<main>
+    <a href="https://www.pr.senac.br"> Acessar site </a>
 
-    <!-- FORMAÇÃO -->
-    <section id="formacao">
-        <div class="section-header">
-            <div class="section-icon"><i class="fa-solid fa-graduation-cap"></i></div>
-            <h2>Formação Acadêmica</h2>
-        </div>
-        <div class="cards-grid">
-            <div class="card">
-                <div class="card-title">Programador de Sistemas</div>
-                <div class="card-sub">Senac</div>
-                <div class="card-meta">
-                    <span class="tag"><i class="fa-regular fa-calendar"></i> fev–jun/2026</span>
-                    <span class="tag"><i class="fa-regular fa-clock"></i> 200h</span>
-                </div>
-            </div>
-            <div class="card">
-                <div class="card-title">Informática Profissionalizante</div>
-                <div class="card-sub">CDI</div>
-                <div class="card-meta">
-                    <span class="tag"><i class="fa-regular fa-calendar"></i> 2014–2015</span>
-                    <span class="tag"><i class="fa-regular fa-clock"></i> 160h</span>
-                </div>
-            </div>
-            <div class="card">
-                <div class="card-title">Análise e Desenvolvimento de Sistemas</div>
-                <div class="card-sub">IFPR — Graduação</div>
-                <div class="card-meta">
-                    <span class="tag"><i class="fa-regular fa-calendar"></i> 2018–2022</span>
-                    <span class="tag"><i class="fa-regular fa-clock"></i> 2310h</span>
-                </div>
-            </div>
-            <div class="card">
-                <div class="card-title">MBA Gestão de Negócios e Inovação</div>
-                <div class="card-sub">Unicesumar — Pós-Graduação</div>
-                <div class="card-meta">
-                    <span class="tag"><i class="fa-regular fa-calendar"></i> 2024–2025</span>
-                    <span class="tag"><i class="fa-regular fa-clock"></i> 400h</span>
-                </div>
-            </div>
-            <div class="card">
-                <div class="card-title">MBA Gestão de Negócios e Inovação</div>
-                <div class="card-sub">SENAC — Pós-Graduação</div>
-                <div class="card-meta">
-                    <span class="tag"><i class="fa-regular fa-calendar"></i> 2025</span>
-                    <span class="tag"><i class="fa-regular fa-clock"></i> 360h</span>
-                </div>
-            </div>
-        </div>
-    </section>
+    <img src="caminhao.jpg" class="frota">
+    <img src="caminhao.jpg" class="frota">
+    <img src="caminhao.jpg" class="frota">
 
-    <!-- EXPERIÊNCIA -->
-    <section id="experiencia">
-        <div class="section-header">
-            <div class="section-icon"><i class="fa-solid fa-briefcase"></i></div>
-            <h2>Experiência Profissional</h2>
-        </div>
-        <div class="timeline">
-            <div class="timeline-item">
-                <div class="tl-period">2023 – 2026</div>
-                <div class="tl-role">Instrutor de Tecnologia</div>
-                <div class="tl-company">Senac</div>
-            </div>
-            <div class="timeline-item">
-                <div class="tl-period">2019 – 2023</div>
-                <div class="tl-role">Programador Java</div>
-                <div class="tl-company">Infomania Sistemas</div>
-            </div>
-            <div class="timeline-item">
-                <div class="tl-period">2018</div>
-                <div class="tl-role">Assistente Administrativo</div>
-                <div class="tl-company">Depósito Rio Branco</div>
-            </div>
-            <div class="timeline-item">
-                <div class="tl-period">2014 – 2018</div>
-                <div class="tl-role">Auxiliar de Cartório</div>
-                <div class="tl-company">Cartório — Serviço Distrital de Marilena</div>
-            </div>
-        </div>
-    </section>
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/5Hn58p-hYC0?si=wQNCoiBcgel7X1ha" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
-    <!-- CONTATO / REDES -->
-    <section id="contato">
-        <div class="section-header">
-            <div class="section-icon"><i class="fa-solid fa-share-nodes"></i></div>
-            <h2>Redes &amp; Contato</h2>
-        </div>
-        <div class="social-grid">
-            <a href="https://wa.me/+5544998521042" class="social-card">
-                <div class="social-icon si-whatsapp"><i class="fa-brands fa-whatsapp"></i></div>
-                <span class="social-label">WhatsApp</span>
-            </a>
-            <a href="#" class="social-card">
-                <div class="social-icon si-facebook"><i class="fa-brands fa-facebook"></i></div>
-                <span class="social-label">Facebook</span>
-            </a>
-            <a href="#" class="social-card">
-                <div class="social-icon si-instagram"><i class="fa-brands fa-instagram"></i></div>
-                <span class="social-label">Instagram</span>
-            </a>
-            <a href="https://g1.globo.com" class="social-card">
-                <div class="social-icon si-linkedin"><i class="fa-brands fa-linkedin"></i></div>
-                <span class="social-label">LinkedIn</span>
-            </a>
-        </div>
-    </section>
+    <br>
 
-    <!-- ENDEREÇO -->
-    <section id="endereco">
-        <div class="section-header">
-            <div class="section-icon"><i class="fa-solid fa-map-pin"></i></div>
-            <h2>Endereço</h2>
-        </div>
-        <div class="address-wrapper">
-            <div class="address-info">
-                <ul>
-                    <li><i class="fa-solid fa-road"></i> Av. Fioravante José Montanher</li>
-                    <li><i class="fa-solid fa-hashtag"></i> Nº 576</li>
-                    <li><i class="fa-solid fa-building"></i> Bairro Centro</li>
-                    <li><i class="fa-solid fa-circle-info"></i> Próximo ao Hospital</li>
-                    <li><i class="fa-solid fa-location-dot"></i> Marilena – PR</li>
-                </ul>
-            </div>
-            <div class="map-frame">
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3679.218526257823!2d-52.9876555257477!3d-22.757270132542587!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x948d9733b7462733%3A0x5d5e4007fad195c0!2sSenac%20Nova%20Londrina!5e0!3m2!1spt-BR!2sbr!4v1772473294784!5m2!1spt-BR!2sbr" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-            </div>
-        </div>
-    </section>
+    <video width="600" controls>
+        <source src="video.mp4" type="Video/mp4">
+    </video>
 
-</main>
+    <br>
 
-<footer>
-    <p>Criado por <span>Luiz Gustavo</span> · 2026</p>
-</footer>
+    <audio controls>
+        <source src="musica1.mp3" type="audio/mp3">
+    </audio>
 
-<script>
-    // Nav toggle
-    const toggle = document.getElementById('menuToggle');
-    const nav = document.getElementById('navLinks');
-    toggle.addEventListener('click', () => nav.classList.toggle('open'));
-    nav.querySelectorAll('a').forEach(a => a.addEventListener('click', () => nav.classList.remove('open')));
+    <!-- comentario -->
+    <h1> Titulo Maior </h1>
+    <h3> Titulo Médio </h3>
+    <h6> Titulo Menor</h6>
 
-    // Scroll reveal
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); } });
-    }, { threshold: 0.1 });
-    document.querySelectorAll('main section').forEach(s => observer.observe(s));
-</script>
+    <hr>
+
+    <p id="senac">
+        <b> Senac Paraná </b> é a solução mais rápida
+        entre você e seu <i> novo emprego </i>, você
+        <u>aprende na prática</u> com instrutores
+        <br><br>
+        especializados e laboratórios modernos.
+    </p>
+
+    <cite>
+        Foguete não tem ré!
+    </cite>
+
+
+
+    
+
+
+
 </body>
 </html>
