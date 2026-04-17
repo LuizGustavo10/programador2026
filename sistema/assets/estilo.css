@@ -1,0 +1,18 @@
+.corpologin{
+    display: flex;
+    align-items: center; /*alinhar acima abaixo*/
+    justify-content: center; /*alinhar esquerda direita*/
+    height: 100vh;          /* o tamanho do fundo é o tamanho da tela */
+}
+
+.painel{
+    position: absolute; /*posição de camadas*/
+    z-index: 1;         /*posicionar camada a frente*/
+    width: 80%;         
+}
+
+.telalogin{
+    background-color: rgba(255, 255, 255, 0.805);
+    border-radius: 20px;
+    box-shadow: 2px 2px 10px gray !important;
+}
