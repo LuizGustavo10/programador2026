@@ -20,14 +20,14 @@
                 <i class="fa-solid fa-circle-user fa-2xl" style="color: rgb(116, 192, 252); font-size: 80px; margin-top: 50px;"></i>
                 <h3 class="m-4"> Login Administrativo </h3>
             </div>
-            <form>
+            <form action="./backend/logar.php" method="post">
                 <div class="mb-3">
                     <label class="form-label"> Email </label>
-                    <input type="email" class="form-control">
+                    <input type="email" name="email" class="form-control">
                 </div>
                 <div class="mb-3">
                     <label class="form-label"> Senha </label>
-                    <input type="password" class="form-control">
+                    <input type="password" name="senha" class="form-control">
                 </div>
                 <button type="submit" class="btn btn-primary">Entrar</button>
                 <button type="reset" class="btn btn-secondary"> Limpar </button>
