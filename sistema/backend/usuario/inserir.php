@@ -12,5 +12,5 @@ VALUES ('$nome','$email','$cpf','$senha')";
 //executar
 $resultado = mysqli_query($conexao, $sql);
 //atualizar a pagina
-// header('Location:../../principal.php');
+header('Location:   ../../principal.php');
 ?>
