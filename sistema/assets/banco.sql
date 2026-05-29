@@ -41,6 +41,8 @@ CREATE TABLE mercado (
 INSERT INTO mercado(nome, cnpj, email, senha, endereco, telefone, foto, mapa) VALUES
 ("Gugão","02.163.753/0006-58", "gugao@gmail.com","123","Av.A.Homernezes","(44) 9996-2547","1","1");
 
+
+
 CREATE TABLE produto(
     id INT PRIMARY KEY AUTO_INCREMENT,
     nome VARCHAR(120),
@@ -48,6 +50,8 @@ CREATE TABLE produto(
     disponibilidade VARCHAR(30) NOT NULL,
     imagem VARCHAR(255),
     mercado_id INT NOT NULL,
-    FOREIGN KEY mercado.id REFERENCES produto.mercado_id;
-
+    FOREIGN KEY (mercado_id) REFERENCES mercado(id)
 );
+
+INSERT INTO produto(nome, preco, disponibilidade, imagem, mercado_id)
+VALUES ("Detergente YPE", 2, "ativo", "imagem", 1);
