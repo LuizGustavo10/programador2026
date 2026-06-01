@@ -31,64 +31,16 @@
     <link rel="stylesheet" href="https://cdn.datatables.net/2.3.7/css/dataTables.dataTables.css" />
 
 </head>
-  <body>
+<body>
 
-   <nav class="navbar navbar-expand-lg corbarra">
-  <div class="container-fluid">
-    
+  <?php include './modulos/menu_superior.php' ?>
 
-    <button onclick="abrirmenu()" class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <a class="navbar-brand" href="#"> <i class="fa-solid fa-alarm-clock" style="color: rgb(255, 255, 255);"></i> Ecolote </a>
-    
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-        <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="#">Home</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Público</a>
-        </li>
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Menu
-          </a>
-          <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="#">Action</a></li>
-            <li><a class="dropdown-item" href="#">Another action</a></li>
-            <li><hr class="dropdown-divider"></li>
-            <li><a class="dropdown-item" href="#">Something else here</a></li>
-          </ul>
-        </li>
-      
-      </ul>
-     
-    </div>
-  </div>
-</nav>
 <div id="escurecer" class="escurecer" onclick="abrirmenu()"></div>
     
    <div class="container-fluid">
         <div class="row">
             <div class="col-md-2 bg-dark">
-                <aside id="sidebar" class="sidebar p-3 text-white bg-dark">
-                    <h4> Meu painel </h4>
-                    
-                    <h5> Bem-vindo(a) <?php echo $_SESSION['usuario']  ?>  </h5>
-                    <ul class="nav flex-column">
-
-                        <li class="nav-item"> 
-                            <a class="nav-link" href="./principal.php"> <i class="fa-solid fa-user" style="color: rgb(255, 255, 255);"></i> Usuários</a>
-                        </li>
-                        <li class="nav-item"> 
-                            <a class="nav-link" href="./mercado.php"> <i class="fa-solid fa-shop" style="color: rgb(255, 255, 255);"></i> Mercados</a>
-                        </li>
-                        <li class="nav-item"> 
-                            <a class="nav-link" href="./produto.php"> <i class="fa-solid fa-basket-shopping" style="color: rgb(255, 255, 255);"></i> Produtos</a>
-                        </li>
-                    </ul>
-                </aside>
+              <?php include './modulos/menu_lateral.php'; ?> 
             </div>
             <div class="col-md-5">
               <form action="<?=$destino?>" method="post" class="p-3">
