@@ -1,0 +1,21 @@
+- No sistema implemente o upload de fotos em produto e mercado
+- implemente a tela de login do mercado, cada mercado tem email e senha
+o mercado gerenciara seus produtos e verá apenas seus produtos
+- Deixe os cards da index e mercado_detalhe mais bonitos, 
+deixe tudo mais moderno, mantendo as cores.
+- No administrativo crie a aba receitas, onde será cadastrado a 
+receita, nome da receita, foto, descrição da receita, posteriomente 
+quando eu estiver cadastrando o produto, eu vincularei várias
+receitas a esse produto especifico, na tela publica, mercado_detalhe
+será possível ver todas as receitas daquele produto em formato de lista
+- na tela mercado_detalhe, quero que coloque um banner com a foto do
+mercado, e em seguida as informações do mercado como email, endereco,
+telefone, mapa em algum lugar e etc, cada card terá um botão,
+que será possível acessar o whatsapp de acordo com o telefone,
+irá uma mensagem se o produto x está disponivel.
+- menu lateral do admin, está cortando em resoluções baixas
+- colocar mascara nos campos telefone, cpf, cnpj e preco
+- colocar rodapé na index e mercado_detalhe
+- colocar contador de visualização na index e prova social
+respeita a lógica do projeto e estruturas, após a alteração me passe as
+alterações em sql, pegue o contexto do projeto

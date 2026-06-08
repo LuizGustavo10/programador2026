@@ -1,3 +1,14 @@
+<?php
+
+include './backend/conexao.php';
+
+$mercados = mysqli_query($conexao, "SELECT * FROM mercado ORDER BY nome");
+$produtos = mysqli_query($conexao, "SELECT produto.*, mercado.nome
+FROM produto INNER JOIN mercado ON mercado.id = produto.mercado_id ORDER BY produto.nome ");
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -58,7 +69,7 @@
 
    <br>
     <h2 class="text-center">bem-vindos ao Ecolote</h2>
-  <br>
+  <br>  
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1830 85.285"><g transform="translate(0 -2185)"><path d="M4661.665,1785.181c-259.119,3.056-375.993,61.328-576.223,58.3-214.726-3.241-313.76-58.487-572.881-55.435-143.507,1.692-260.3,20.072-313.545,34.408v47.86h1830v-39.258C4967.885,1808.12,4859.114,1782.856,4661.665,1785.181Z" transform="translate(-3199.016 399.968)" fill="#330672"></path></g></svg>
 <section style="background-color: #330672; margin-top: -3px;" >
     <p class="text-center text-white" style="padding: 70px;">
@@ -72,50 +83,21 @@
 <div class="container">
 <div class="row">
 
+<?php while($mercado = mysqli_fetch_assoc($mercados)){ ?>
+
   <div class="col-12 col-sm-6 col-lg-3 mt-4 d-flex justify-content-center">
       <div class="card" style="width: 15rem;">
-        <img src="./imagem/mercadinho2.png" class="card-img-top" alt="...">
+        <img src="<?=$mercado['foto']; ?>" class="card-img-top" alt="...">
         <div class="card-body">
-          <h5 class="card-title"> Mercadinho da vovó </h5>
-          <p class="card-text"> O maior, o gigante em simplicidade e qualidade!</p>
-          <a href="#" class="btn btn-primary"> Acessar </a>
+          <h5 class="card-title"> <?=$mercado['nome']; ?> </h5>
+          <p class="card-text"> <?=$mercado['endereco'] ?></p>
+          <p class="card-text"> <?=$mercado['telefone'] ?></p>
+
+          <a href="mercado_detalhe.php?id=<?=$mercado['id'] ?>" class="btn btn-primary"> Acessar </a>
         </div>
       </div>
   </div>
-
-    <div class="col-12 col-sm-6 col-lg-3 mt-4 d-flex justify-content-center">
-      <div class="card" style="width: 15rem;">
-        <img src="./imagem/mercadinho2.png" class="card-img-top" alt="...">
-        <div class="card-body">
-          <h5 class="card-title"> Confeito Embalagem </h5>
-          <p class="card-text"> Os melhores doces da cidade!</p>
-          <a href="#" class="btn btn-primary"> Acessar </a>
-        </div>
-      </div>
-  </div>
-
-    <div class="col-12 col-sm-6 col-lg-3 mt-4 d-flex justify-content-center">
-      <div class="card" style="width: 15rem;">
-        <img src="./imagem/mercadinho2.png" class="card-img-top" alt="...">
-        <div class="card-body">
-          <h5 class="card-title"> Mercadinho da vovó </h5>
-          <p class="card-text"> O maior, o gigante em simplicidade e qualidade!</p>
-          <a href="#" class="btn btn-primary"> Acessar </a>
-        </div>
-      </div>
-  </div>
-
-    <div class="col-12 col-sm-6 col-lg-3 mt-4 d-flex justify-content-center">
-      <div class="card" style="width: 15rem;">
-        <img src="./imagem/mercadinho2.png" class="card-img-top" alt="...">
-        <div class="card-body">
-          <h5 class="card-title"> Mercadinho da vovó </h5>
-          <p class="card-text"> O maior, o gigante em simplicidade e qualidade!</p>
-          <a href="#" class="btn btn-primary"> Acessar </a>
-        </div>
-      </div>
-  </div>
-
+  <?php } ?>
 
   </div>
 </div>
