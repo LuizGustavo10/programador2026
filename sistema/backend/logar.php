@@ -13,9 +13,6 @@
     //pegar valores das colunas do banco
     $colunas = mysqli_fetch_assoc($resultado);
 
-    //imprimir o encontrado
-    echo $colunas['nome'];
-  
     //se o numero de linhas for maior que zero buscados, pode logar
     if(mysqli_num_rows($resultado) > 0){
         session_start();
@@ -24,6 +21,7 @@
         $_SESSION['usuario'] = $colunas['nome'];
         $_SESSION['email'] = $colunas['email'];
         $_SESSION['senha'] = $colunas['senha'];
+        $_SESSION['tipo'] = 'admin';
 
         //direciona para a pagina principal
         header('location:../principal.php');

@@ -55,3 +55,29 @@ CREATE TABLE produto(
 
 INSERT INTO produto(nome, preco, disponibilidade, imagem, mercado_id)
 VALUES ("Detergente YPE", 2, "ativo", "imagem", 1);
+
+/* ALTERACOES DO SISTEMA ECOLOTE */
+ALTER TABLE mercado MODIFY mapa TEXT;
+ALTER TABLE mercado MODIFY foto VARCHAR(255);
+ALTER TABLE produto MODIFY imagem VARCHAR(255);
+
+CREATE TABLE IF NOT EXISTS receita(
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    nome VARCHAR(120) NOT NULL,
+    foto VARCHAR(255),
+    descricao TEXT NOT NULL
+);
+
+CREATE TABLE IF NOT EXISTS produto_receita(
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    produto_id INT NOT NULL,
+    receita_id INT NOT NULL,
+    FOREIGN KEY (produto_id) REFERENCES produto(id),
+    FOREIGN KEY (receita_id) REFERENCES receita(id)
+);
+
+CREATE TABLE IF NOT EXISTS site_visita(
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    pagina VARCHAR(80) NOT NULL,
+    criado_em TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);

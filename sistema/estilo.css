@@ -1,3 +1,222 @@
 .fundoazul{
     background-color: #f5c63a;
 }
+
+body{
+    background: #f8f7fb;
+    color: #251f2f;
+}
+
+.public-carousel img{
+    height: clamp(220px, 42vw, 380px);
+    object-fit: cover;
+}
+
+.public-intro{
+    background: #330672;
+    color: #fff;
+    padding: 70px 0;
+}
+
+.public-intro h1{
+    font-size: clamp(2rem, 4vw, 3.5rem);
+    font-weight: 800;
+    margin-bottom: 14px;
+}
+
+.public-intro p{
+    max-width: 720px;
+    font-size: 1.15rem;
+    margin-bottom: 28px;
+}
+
+.social-proof{
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 14px;
+}
+
+.social-proof div{
+    background: rgba(255,255,255,.12);
+    border: 1px solid rgba(255,255,255,.18);
+    border-radius: 8px;
+    padding: 18px;
+}
+
+.social-proof strong{
+    display: block;
+    font-size: 2rem;
+    line-height: 1;
+}
+
+.social-proof span{
+    color: rgba(255,255,255,.82);
+}
+
+.public-card,
+.product-card{
+    background: #fff;
+    border: 1px solid rgba(51, 6, 114, .09);
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 16px 34px rgba(38, 28, 54, .08);
+    transition: transform .2s ease, box-shadow .2s ease;
+}
+
+.public-card:hover,
+.product-card:hover{
+    transform: translateY(-4px);
+    box-shadow: 0 20px 42px rgba(38, 28, 54, .13);
+}
+
+.public-card img,
+.product-card > img{
+    width: 100%;
+    height: 170px;
+    max-height: 170px;
+    object-fit: cover;
+}
+
+.public-card-body,
+.product-card-body{
+    padding: 18px;
+}
+
+.public-card h3,
+.product-card h3{
+    font-size: 1.12rem;
+    font-weight: 800;
+    margin-bottom: 8px;
+}
+
+.public-card p{
+    min-height: 48px;
+    margin-bottom: 8px;
+    color: #61576d;
+}
+
+.public-card span{
+    color: #330672;
+    font-weight: 700;
+}
+
+.btn-primary{
+    background: #330672;
+    border-color: #330672;
+}
+
+.btn-primary:hover{
+    background: #24044f;
+    border-color: #24044f;
+}
+
+.market-hero{
+    min-height: 300px;
+    max-height: 360px;
+    background-size: cover;
+    background-position: center;
+    color: #fff;
+    display: flex;
+    align-items: end;
+    padding: 64px 0;
+}
+
+.market-hero h1{
+    font-size: clamp(2.2rem, 5vw, 4.2rem);
+    font-weight: 900;
+    margin-bottom: 8px;
+}
+
+.market-hero p{
+    font-size: 1.2rem;
+    max-width: 720px;
+    margin: 0;
+}
+
+.market-info{
+    background: #fff;
+    padding: 34px 0;
+}
+
+.info-panel,
+.map-panel{
+    border: 1px solid rgba(51, 6, 114, .1);
+    border-radius: 8px;
+    padding: 22px;
+    background: #fbfafc;
+}
+
+.map-panel iframe{
+    width: 100%;
+    min-height: 260px;
+    border: 0;
+    border-radius: 8px;
+}
+
+.product-card strong{
+    color: #330672;
+    white-space: nowrap;
+}
+
+.recipe-list{
+    border-top: 1px solid #ece8f2;
+    padding-top: 14px;
+}
+
+.recipe-list h4{
+    font-size: .95rem;
+    font-weight: 800;
+    margin-bottom: 10px;
+}
+
+.recipe-item{
+    display: grid;
+    grid-template-columns: 56px 1fr;
+    gap: 10px;
+    padding: 10px 0;
+    border-top: 1px solid #f1edf5;
+}
+
+.recipe-item:first-of-type{
+    border-top: 0;
+}
+
+.recipe-item img{
+    width: 56px;
+    height: 56px;
+    max-width: 56px;
+    max-height: 56px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+img{
+    max-width: 100%;
+}
+
+.recipe-item p{
+    margin: 2px 0 0;
+    color: #61576d;
+    font-size: .92rem;
+}
+
+.public-footer{
+    background: #330672;
+    color: #fff;
+    padding: 24px 0;
+}
+
+@media(max-width: 768px){
+    .social-proof{
+        grid-template-columns: 1fr;
+    }
+
+    .public-carousel img{
+        height: 240px;
+    }
+
+    .market-hero{
+        min-height: 260px;
+        padding: 48px 0;
+    }
+}

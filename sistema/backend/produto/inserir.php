@@ -1,17 +1,24 @@
 <?php
 include '../conexao.php';
-//receber os dados dos names do frontend
-$nome = $_REQUEST['nome'];
-$preco = $_REQUEST['preco'];
-$disponibilidade = $_REQUEST['disponibilidade'];
-$imagem = $_REQUEST['imagem'];
-$mercado = $_REQUEST['mercado'];
+include '../validacao.php';
+include '../upload.php';
 
-//inserção em SQL - linguagem do banco
-$sql = "INSERT INTO produto(nome, preco, disponibilidade, imagem, mercado_id) 
+$nome = $_REQUEST['nome'];
+$preco = formatarPrecoBanco($_REQUEST['preco']);
+$disponibilidade = $_REQUEST['disponibilidade'];
+$imagem = salvarUpload('imagem');
+$mercado = ($_SESSION['tipo'] ?? 'admin') == 'mercado' ? $_SESSION['mercado_id'] : $_REQUEST['mercado'];
+$receitas = $_POST['receitas'] ?? [];
+
+$sql = "INSERT INTO produto(nome, preco, disponibilidade, imagem, mercado_id)
 VALUES ('$nome','$preco','$disponibilidade','$imagem','$mercado')";
-//executar
-$resultado = mysqli_query($conexao, $sql);
-//atualizar a pagina
-header('Location:   ../../produto.php');
+
+mysqli_query($conexao, $sql);
+$produtoId = mysqli_insert_id($conexao);
+
+foreach($receitas as $receitaId){
+    mysqli_query($conexao, "INSERT INTO produto_receita(produto_id, receita_id) VALUES ('$produtoId', '$receitaId')");
+}
+
+header('Location: ../../produto.php');
 ?>

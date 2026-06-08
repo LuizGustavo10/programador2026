@@ -1,20 +1,25 @@
 <?php
 include '../conexao.php';
-//receber os dados dos names do frontend
+include '../validacao.php';
+include '../upload.php';
+
+if(($_SESSION['tipo'] ?? 'admin') != 'admin'){
+    header('Location: ../../produto.php');
+    exit;
+}
+
 $nome = $_REQUEST['nome'];
 $email = $_REQUEST['email'];
 $cnpj = $_REQUEST['cnpj'];
 $senha = $_REQUEST['senha'];
 $endereco = $_REQUEST['endereco'];
 $telefone = $_REQUEST['telefone'];
-$foto = $_REQUEST['foto'];
+$foto = salvarUpload('foto');
 $mapa = $_REQUEST['mapa'];
 
-//inserção em SQL - linguagem do banco
-$sql = "INSERT INTO mercado(nome, email, cnpj, senha, endereco, telefone, foto, mapa) 
+$sql = "INSERT INTO mercado(nome, email, cnpj, senha, endereco, telefone, foto, mapa)
 VALUES ('$nome','$email','$cnpj','$senha','$endereco','$telefone','$foto','$mapa')";
-//executar
-$resultado = mysqli_query($conexao, $sql);
-//atualizar a pagina
-header('Location:   ../../mercado.php');
+
+mysqli_query($conexao, $sql);
+header('Location: ../../mercado.php');
 ?>
