@@ -1,0 +1,606 @@
+.fundoazul{
+    background-color: #f5c63a;
+}
+
+body{
+    background: #f8f7fb;
+    color: #251f2f;
+}
+
+.public-carousel img{
+    height: clamp(220px, 42vw, 380px);
+    object-fit: cover;
+}
+
+.public-intro{
+    background: #330672;
+    color: #fff;
+    padding: 70px 0;
+}
+
+.public-intro h1{
+    font-size: clamp(2rem, 4vw, 3.5rem);
+    font-weight: 800;
+    margin-bottom: 14px;
+}
+
+.public-intro p{
+    max-width: 720px;
+    font-size: 1.15rem;
+    margin-bottom: 28px;
+}
+
+.social-proof{
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 14px;
+}
+
+.social-proof div{
+    background: rgba(255,255,255,.12);
+    border: 1px solid rgba(255,255,255,.18);
+    border-radius: 8px;
+    padding: 18px;
+}
+
+.social-proof strong{
+    display: block;
+    font-size: 2rem;
+    line-height: 1;
+}
+
+.social-proof span{
+    color: rgba(255,255,255,.82);
+}
+
+.public-card,
+.product-card{
+    background: #fff;
+    border: 1px solid rgba(51, 6, 114, .09);
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 16px 34px rgba(38, 28, 54, .08);
+    transition: transform .2s ease, box-shadow .2s ease;
+}
+
+.public-card:hover,
+.product-card:hover{
+    transform: translateY(-4px);
+    box-shadow: 0 20px 42px rgba(38, 28, 54, .13);
+}
+
+.public-card img,
+.product-card > img{
+    width: 100%;
+    height: 170px;
+    max-height: 170px;
+    object-fit: cover;
+}
+
+.public-card-body,
+.product-card-body{
+    padding: 18px;
+}
+
+.public-card h3,
+.product-card h3{
+    font-size: 1.12rem;
+    font-weight: 800;
+    margin-bottom: 8px;
+}
+
+.public-card p{
+    min-height: 48px;
+    margin-bottom: 8px;
+    color: #61576d;
+}
+
+.public-card span{
+    color: #330672;
+    font-weight: 700;
+}
+
+.public-section{
+    padding: 70px 0;
+}
+
+.public-section-light{
+    background: #fff;
+}
+
+.section-heading{
+    max-width: 760px;
+    margin-bottom: 28px;
+}
+
+.section-heading span{
+    display: inline-block;
+    color: #f06400;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 0;
+    margin-bottom: 8px;
+}
+
+.section-heading h2{
+    color: #251f2f;
+    font-size: clamp(1.8rem, 3vw, 2.8rem);
+    font-weight: 900;
+    margin-bottom: 8px;
+}
+
+.section-heading p{
+    color: #61576d;
+    margin: 0;
+}
+
+.swiper{
+    padding-bottom: 48px;
+}
+
+.slider-card{
+    min-height: 330px;
+}
+
+.market-pill{
+    display: inline-flex;
+    color: #330672;
+    background: #f5c63a;
+    border-radius: 999px;
+    padding: 5px 10px;
+    font-size: .78rem;
+    font-weight: 900;
+    margin-bottom: 10px;
+}
+
+.recipe-card{
+    display: block;
+    background: #fff;
+    border: 1px solid rgba(51, 6, 114, .09);
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 16px 34px rgba(38, 28, 54, .08);
+    color: #251f2f;
+    text-decoration: none;
+    transition: transform .2s ease, box-shadow .2s ease;
+}
+
+.recipe-card:hover{
+    color: #251f2f;
+    transform: translateY(-4px);
+    box-shadow: 0 20px 42px rgba(38, 28, 54, .13);
+}
+
+.recipe-card img{
+    width: 100%;
+    height: 210px;
+    object-fit: cover;
+}
+
+.recipe-card div{
+    padding: 20px;
+}
+
+.recipe-card h3{
+    font-size: 1.18rem;
+    font-weight: 900;
+    margin-bottom: 8px;
+}
+
+.recipe-card p{
+    color: #61576d;
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    margin: 0;
+}
+
+.recipe-card span{
+    color: #330672;
+    font-weight: 900;
+}
+
+.empty-slide{
+    background: #fff;
+    border: 1px dashed rgba(51, 6, 114, .22);
+    border-radius: 8px;
+    color: #61576d;
+    padding: 30px;
+    text-align: center;
+}
+
+.swiper-pagination-bullet-active{
+    background: #f06400;
+}
+
+.market-coverflow-section{
+    overflow: hidden;
+}
+
+.market-coverflow .swiper-slide{
+    width: min(82vw, 360px);
+}
+
+.market-photo-slide{
+    display: block;
+    position: relative;
+    overflow: hidden;
+    border-radius: 8px;
+    min-height: 360px;
+    color: #fff;
+    box-shadow: 0 24px 46px rgba(38, 28, 54, .2);
+}
+
+.market-photo-slide img{
+    width: 100%;
+    height: 360px;
+    object-fit: cover;
+    filter: saturate(1.06);
+}
+
+.market-photo-slide strong{
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding: 44px 22px 22px;
+    background: linear-gradient(transparent, rgba(51, 6, 114, .9));
+    color: #fff;
+    font-size: 1.35rem;
+    font-weight: 900;
+}
+
+.market-prev,
+.market-next{
+    color: #f06400;
+}
+
+.faq-section{
+    background: #f8f7fb;
+    padding: 70px 0;
+}
+
+.faq-section .accordion{
+    max-width: 920px;
+}
+
+.faq-section .accordion-item{
+    border: 1px solid rgba(51, 6, 114, .1);
+    border-radius: 8px;
+    overflow: hidden;
+    margin-bottom: 12px;
+}
+
+.faq-section .accordion-button{
+    font-weight: 800;
+}
+
+.faq-section .accordion-button:not(.collapsed){
+    background: #330672;
+    color: #fff;
+}
+
+.btn-primary{
+    background: #330672;
+    border-color: #330672;
+}
+
+.btn-primary:hover{
+    background: #24044f;
+    border-color: #24044f;
+}
+
+.market-hero{
+    min-height: 300px;
+    max-height: 360px;
+    background-size: cover;
+    background-position: center;
+    color: #fff;
+    display: flex;
+    align-items: end;
+    padding: 64px 0;
+}
+
+.market-hero h1{
+    font-size: clamp(2.2rem, 5vw, 4.2rem);
+    font-weight: 900;
+    margin-bottom: 8px;
+}
+
+.market-hero p{
+    font-size: 1.2rem;
+    max-width: 720px;
+    margin: 0;
+}
+
+.market-info{
+    background: #fff;
+    padding: 34px 0;
+}
+
+.info-panel,
+.map-panel{
+    border: 1px solid rgba(51, 6, 114, .1);
+    border-radius: 8px;
+    padding: 22px;
+    background: #fbfafc;
+}
+
+.map-panel iframe{
+    width: 100%;
+    min-height: 260px;
+    border: 0;
+    border-radius: 8px;
+}
+
+.product-card strong{
+    color: #330672;
+    white-space: nowrap;
+}
+
+.recipe-list{
+    border-top: 1px solid #ece8f2;
+    padding-top: 14px;
+}
+
+.recipe-list h4{
+    font-size: .95rem;
+    font-weight: 800;
+    margin-bottom: 10px;
+}
+
+.recipe-item{
+    display: grid;
+    grid-template-columns: 56px 1fr;
+    gap: 10px;
+    padding: 10px 0;
+    border-top: 1px solid #f1edf5;
+}
+
+.recipe-item:first-of-type{
+    border-top: 0;
+}
+
+.recipe-item img{
+    width: 56px;
+    height: 56px;
+    max-width: 56px;
+    max-height: 56px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+img{
+    max-width: 100%;
+}
+
+.recipe-item p{
+    margin: 2px 0 0;
+    color: #61576d;
+    font-size: .92rem;
+}
+
+.recipe-item a{
+    color: #251f2f;
+    text-decoration: none;
+}
+
+.recipe-item a:hover strong{
+    color: #330672;
+}
+
+.recipe-detail{
+    padding: 70px 0;
+}
+
+.recipe-detail-photo{
+    width: 100%;
+    max-height: 430px;
+    object-fit: cover;
+    border-radius: 8px;
+    box-shadow: 0 18px 38px rgba(38, 28, 54, .14);
+}
+
+.recipe-detail-panel{
+    background: #fff;
+    border: 1px solid rgba(51, 6, 114, .09);
+    border-radius: 8px;
+    padding: 28px;
+    box-shadow: 0 16px 34px rgba(38, 28, 54, .08);
+}
+
+.recipe-detail-panel h2{
+    font-weight: 900;
+    margin-bottom: 12px;
+}
+
+.recipe-detail-panel p{
+    color: #61576d;
+    line-height: 1.7;
+    white-space: pre-line;
+}
+
+.linked-products{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 16px;
+    margin-top: 18px;
+}
+
+.linked-product{
+    display: grid;
+    grid-template-columns: 76px 1fr;
+    gap: 12px;
+    align-items: center;
+    background: #fbfafc;
+    border: 1px solid rgba(51, 6, 114, .08);
+    border-radius: 8px;
+    padding: 10px;
+    color: #251f2f;
+    text-decoration: none;
+}
+
+.linked-product img{
+    width: 76px;
+    height: 64px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.linked-product strong{
+    display: block;
+}
+
+.linked-product span{
+    color: #61576d;
+    font-size: .92rem;
+}
+
+.public-footer{
+    background: #330672;
+    color: #fff;
+    padding: 24px 0;
+}
+
+.public-footer strong{
+    display: block;
+}
+
+.public-footer span{
+    color: rgba(255,255,255,.78);
+}
+
+.footer-social{
+    display: flex;
+    gap: 12px;
+}
+
+.footer-social a{
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 38px;
+    height: 38px;
+    color: #fff;
+    border: 1px solid rgba(255,255,255,.35);
+    border-radius: 50%;
+    text-decoration: none;
+    transition: background .2s ease, transform .2s ease;
+}
+
+.footer-social a:hover{
+    background: rgba(255,255,255,.14);
+    transform: translateY(-2px);
+}
+
+.about-hero{
+    background: radial-gradient(circle at top left, rgba(245,198,58,.28), transparent 36%), #330672;
+    color: #fff;
+    padding: 70px 0 90px;
+}
+
+.about-hero h1{
+    font-size: clamp(2.4rem, 5vw, 4.8rem);
+    font-weight: 900;
+    margin-bottom: 10px;
+}
+
+.about-hero p{
+    color: rgba(255,255,255,.82);
+    max-width: 720px;
+    font-size: 1.12rem;
+}
+
+.album-section{
+    padding: 70px 0;
+}
+
+.album-grid{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 22px;
+}
+
+.sticker-card{
+    background: #fff;
+    border: 2px solid #f5c63a;
+    border-radius: 8px;
+    box-shadow: 0 18px 34px rgba(38, 28, 54, .12);
+    overflow: hidden;
+    transform: rotate(-1deg);
+}
+
+.sticker-card:nth-child(even){
+    transform: rotate(1deg);
+}
+
+.sticker-photo{
+    background: linear-gradient(135deg, #f5c63a, #f06400);
+    aspect-ratio: 4 / 5;
+    display: grid;
+    place-items: center;
+    border-bottom: 2px solid #f5c63a;
+}
+
+.sticker-photo img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.sticker-initials{
+    color: #330672;
+    font-size: 4rem;
+    font-weight: 900;
+}
+
+.sticker-info{
+    padding: 16px;
+}
+
+.sticker-info small{
+    display: block;
+    color: #f06400;
+    font-weight: 900;
+    margin-bottom: 4px;
+}
+
+.sticker-info h2{
+    font-size: 1.18rem;
+    font-weight: 900;
+    margin-bottom: 10px;
+}
+
+.sticker-info a{
+    color: #330672;
+    font-weight: 800;
+    text-decoration: none;
+}
+
+@media(max-width: 768px){
+    .social-proof{
+        grid-template-columns: 1fr;
+    }
+
+    .public-carousel img{
+        height: 240px;
+    }
+
+    .market-hero{
+        min-height: 260px;
+        padding: 48px 0;
+    }
+
+    .public-section,
+    .faq-section,
+    .album-section{
+        padding: 48px 0;
+    }
+
+    .market-photo-slide,
+    .market-photo-slide img{
+        min-height: 300px;
+        height: 300px;
+    }
+}

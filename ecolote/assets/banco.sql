@@ -17,15 +17,6 @@ INSERT INTO usuario(nome, cpf, email, senha) VALUES
 ("Valentina", "321.321.321-32", "val@gmail.com", "123"),
 ("Admin", "111.111.111-11", "admin@gmail.com", "111");
 
-UPDATE usuario SET salario = 3000;
-UPDATE usuario SET salario = 5000 WHERE id=1;
-
-DELETE FROM usuario WHERE id = 2;
-
-SELECT * FROM usuario;
-SELECT nome, salario FROM usuario;
-SELECT nome, salario FROM usuario WHERE salario > 4000;
-
 CREATE TABLE mercado (
     id INT PRIMARY KEY AUTO_INCREMENT,
     nome VARCHAR(120) NOT NULL,

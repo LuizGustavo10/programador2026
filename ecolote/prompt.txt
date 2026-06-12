@@ -18,4 +18,4 @@ irá uma mensagem se o produto x está disponivel.
 - colocar rodapé na index e mercado_detalhe
 - colocar contador de visualização na index e prova social
 respeita a lógica do projeto e estruturas, após a alteração me passe as
-alterações em sql, pegue o contexto do projeto
+alterações em sql, pegue o contexto do projeto,

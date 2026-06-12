@@ -29,6 +29,7 @@ function telefoneWhatsapp($telefone)
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><?php echo $mercado['nome']; ?> - Ecolote</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="estilo.css">
 </head>
 <body>
@@ -41,6 +42,7 @@ function telefoneWhatsapp($telefone)
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item"><a class="nav-link active" href="./index.php">Mercados</a></li>
+        <li class="nav-item"><a class="nav-link active" href="./sobre.php">Sobre</a></li>
       </ul>
       <a href="./login_mercado.php" class="btn btn-dark">Login Mercado</a>
     </div>
@@ -59,9 +61,9 @@ function telefoneWhatsapp($telefone)
     <div class="row g-4 align-items-stretch">
       <div class="col-lg-5">
         <div class="info-panel h-100">
-          <h2>Informacoes do mercado</h2>
+          <h2>Informações do mercado</h2>
           <p><strong>Email:</strong> <?php echo $mercado['email']; ?></p>
-          <p><strong>Endereco:</strong> <?php echo $mercado['endereco']; ?></p>
+          <p><strong>Endereço:</strong> <?php echo $mercado['endereco']; ?></p>
           <p><strong>Telefone:</strong> <?php echo $mercado['telefone']; ?></p>
           <a class="btn btn-success" target="_blank" href="https://wa.me/<?php echo telefoneWhatsapp($mercado['telefone']); ?>">Chamar no WhatsApp</a>
         </div>
@@ -84,14 +86,14 @@ function telefoneWhatsapp($telefone)
 <main class="container py-5">
   <div class="d-flex align-items-end justify-content-between gap-3 flex-wrap mb-4">
     <div>
-      <h2 class="mb-1">Produtos disponiveis</h2>
+      <h2 class="mb-1">Produtos disponíveis</h2>
       <p class="text-muted mb-0">Consulte disponibilidade pelo WhatsApp do mercado.</p>
     </div>
   </div>
   <div class="row g-4">
     <?php while($produto = mysqli_fetch_assoc($produtos)){ ?>
       <?php
-        $mensagem = urlencode("Ola, gostaria de saber se o produto ".$produto['nome']." esta disponivel.");
+        $mensagem = urlencode("Olá, gostaria de saber se o produto ".$produto['nome']." está disponível.");
         $receitasProduto = mysqli_query($conexao, "SELECT receita.* FROM receita INNER JOIN produto_receita ON produto_receita.receita_id = receita.id WHERE produto_receita.produto_id='".$produto['id']."' ORDER BY receita.nome");
       ?>
       <div class="col-12 col-sm-6 col-lg-4">
@@ -112,10 +114,14 @@ function telefoneWhatsapp($telefone)
               <?php while($receita = mysqli_fetch_assoc($receitasProduto)){ ?>
                 <div class="recipe-item">
                   <?php if(!empty($receita['foto'])){ ?>
-                    <img src="<?php echo $receita['foto']; ?>" alt="<?php echo $receita['nome']; ?>">
+                    <a href="receita_detalhe.php?id=<?php echo $receita['id']; ?>">
+                      <img src="<?php echo $receita['foto']; ?>" alt="<?php echo $receita['nome']; ?>">
+                    </a>
                   <?php } ?>
                   <div>
-                    <strong><?php echo $receita['nome']; ?></strong>
+                    <a href="receita_detalhe.php?id=<?php echo $receita['id']; ?>">
+                      <strong><?php echo $receita['nome']; ?></strong>
+                    </a>
                     <p><?php echo $receita['descricao']; ?></p>
                   </div>
                 </div>
@@ -129,9 +135,17 @@ function telefoneWhatsapp($telefone)
 </main>
 
 <footer class="public-footer">
-  <div class="container d-flex justify-content-between gap-3 flex-wrap">
-    <strong>Ecolote</strong>
-    <span><?php echo $mercado['nome']; ?> no consumo consciente.</span>
+  <div class="container d-flex align-items-center justify-content-between gap-3 flex-wrap">
+    <div>
+      <strong>Ecolote</strong>
+      <span><?php echo $mercado['nome']; ?> no consumo consciente.</span>
+    </div>
+    <div class="footer-social">
+      <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+      <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+      <a href="#" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+      <a href="#" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
+    </div>
   </div>
 </footer>
 
